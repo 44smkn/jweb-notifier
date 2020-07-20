@@ -1,4 +1,4 @@
-@startuml
+@startuml jweb-notifier
 class User {
     ユーザID
     ユーザ名
