@@ -1,0 +1,32 @@
+@startuml
+class User {
+    ユーザID
+    ユーザ名
+    パスワード
+    通知先
+    ウォッチリスト
+}
+note left: ・ユーザIDはメールアドレス\n・パスワードは8文字以上で\n小文字大文字数字の3種含む\n・ウォッチリストはblog複数
+
+class Blog {
+    タレントID
+    タレント名
+    グループ名
+}
+note left: ・タレントIDはジャニWEBのartist param\n
+
+interface Notifier {
+    Notify()
+}
+
+class SlackNotifier {
+    ユーザID
+    URL
+    チャンネル
+    トークン
+}
+
+User "0..1" --> "0..n" Blog
+User "0..1" --> "0..1" Notifier
+Notifier <|-- SlackNotifier
+@enduml
