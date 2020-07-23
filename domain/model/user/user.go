@@ -1,8 +1,7 @@
-package domain
+package user
 
 type User struct {
-	UserId       string
-	UserName     string
+	UserId       Id
 	Password     string
 	Notification string
 	WatchList    []string
