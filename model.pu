@@ -1,19 +1,22 @@
 @startuml jweb-notifier
 class User {
     ユーザID
-    ユーザ名
     パスワード
-    通知先
     ウォッチリスト
 }
 note left: ・ユーザIDはメールアドレス\n・パスワードは8文字以上で\n小文字大文字数字の3種含む\n・ウォッチリストはblog複数
 
-class Blog {
+class Diary {
     タレントID
     タレント名
     グループ名
 }
 note left: ・タレントIDはジャニWEBのartist param\n
+
+class Favorite {
+    ユーザID
+    タレントID
+}
 
 interface Notifier {
     Notify()
@@ -22,11 +25,12 @@ interface Notifier {
 class SlackNotifier {
     ユーザID
     URL
-    チャンネル
+    recipient
     トークン
 }
 
-User "0..1" --> "0..n" Blog
+User "0..1" --> "0..n" Favorite
+Diary "0..1" --> "0..n" Favorite
 User "0..1" --> "0..1" Notifier
 Notifier <|-- SlackNotifier
 @enduml
