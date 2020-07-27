@@ -7,15 +7,15 @@ class User {
 note left: ・ユーザIDはメールアドレス\n・パスワードは8文字以上で\n小文字大文字数字の3種含む\n・ウォッチリストはblog複数
 
 class Diary {
-    タレントID
+    ダイアリーID
     タレント名
     グループ名
 }
-note left: ・タレントIDはジャニWEBのartist param\n
+note left: ・ダイアリーIDはジャニWEBのartist param\n
 
 class Favorite {
     ユーザID
-    タレントID
+    ダイアリーID
 }
 
 interface Notifier {
