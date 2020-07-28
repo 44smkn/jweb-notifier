@@ -6,5 +6,5 @@ type Id struct {
 
 func NewId(id string) (*Id, error) {
 	// 桁数などでvalidataionをかける
-	return nil, nil
+	return &Id{id}, nil
 }
