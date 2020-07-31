@@ -1,4 +1,4 @@
-@startuml jweb-notifier
+@startuml domain
 class User {
     ユーザID
     パスワード
@@ -33,4 +33,18 @@ User "0..1" --> "0..n" Favorite
 Diary "0..1" --> "0..n" Favorite
 User "0..1" --> "0..1" Notifier
 Notifier <|-- SlackNotifier
+@enduml
+
+@startuml usecase
+actor "subscriber for Johneys web" as s
+rectangle {
+    usecase "ユーザ登録" as UC1
+    usecase "通知したいブログ（diary）の追加" as UC2
+    usecase "通知したいブログ（diary）の削除" as UC3
+    usecase "登録しているブログが更新時に通知させる" as UC4
+}
+s --> UC1
+s --> UC2
+s --> UC3
+s ..> UC4
 @enduml
