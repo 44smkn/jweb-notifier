@@ -1,4 +1,4 @@
-package notifier
+package entity
 
 type Notifier interface {
 	Notify(string) error

@@ -1,10 +1,10 @@
-package diary
+package vo
 
-type Id struct {
+type DiaryId struct {
 	id string
 }
 
-func NewId(id string) (*Id, error) {
+func NewDiaryId(id string) (*Id, error) {
 	// 桁数などでvalidataionをかける
 	return &Id{id}, nil
 }

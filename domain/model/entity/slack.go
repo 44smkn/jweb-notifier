@@ -1,9 +1,11 @@
-package notifier
+package entity
 
-import "jweb-notifier/domain/model/user"
+import (
+	"jweb-notifier/domain/model/vo"
+)
 
 type Slack struct {
-	UserId     user.Id
+	UserId     vo.UserId
 	WebhookUrl string
 	Recipient  string
 	Token      string

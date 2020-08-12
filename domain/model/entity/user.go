@@ -1,8 +1,10 @@
-package user
+package entity
+
+import "jweb-notifier/domain/model/vo"
 
 type User struct {
-	UserId   *Id
-	Password *Password
+	UserId   *vo.UserId
+	Password *vo.Password
 }
 
 func New(id *Id, password *Password) *User {

@@ -1,4 +1,4 @@
-package diary
+package vo
 
 type TalentName string
 
