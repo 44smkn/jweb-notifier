@@ -1,9 +1,12 @@
 package inmem
 
-import "jweb-notifier/domain/model/user"
+import "jweb-notifier/domain/model/entity"
 
 type UserRepository struct{}
 
-func (u *UserRepository) Register(user *user.User) error {
+var users = make([]*entity.User, 5)
+
+func (u *UserRepository) Register(user *entity.User) error {
+	users = append(users, user)
 	return nil
 }
