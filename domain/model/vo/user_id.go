@@ -12,9 +12,9 @@ type UserId struct {
 // mailRe はメールアドレスの正規表現
 var mailRe = regexp.MustCompile(`^[a-zA-Z0-9.!#$%&'*+\/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$`)
 
-func NewUserId(id string) (*Id, error) {
+func NewUserId(id string) (*UserId, error) {
 	if !mailRe.MatchString(id) {
 		return nil, errors.New("IDがメールアドレスの形式になっていません")
 	}
-	return &Id{id}, nil
+	return &UserId{id}, nil
 }
