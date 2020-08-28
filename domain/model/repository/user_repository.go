@@ -1,5 +1,9 @@
 package user
 
+import (
+	"jweb-notifier/domain/model/entity"
+)
+
 type Repository interface {
-	Register(*User) error
+	Register(*entity.User) error
 }
