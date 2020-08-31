@@ -9,7 +9,7 @@ type User struct {
 	Password *vo.Password
 }
 
-func New(id *vo.UserId, password *vo.Password) *User {
+func NewUser(id *vo.UserId, password *vo.Password) *User {
 	return &User{
 		UserId:   id,
 		Password: password,
