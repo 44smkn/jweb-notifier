@@ -16,3 +16,14 @@ func (u *UserRepository) AddFavorite(fav *entity.Favorite) error {
 	favs = append(favs, fav)
 	return nil
 }
+
+func (u *UserRepository) DeleteFavorite(fav *entity.Favorite) error {
+	for i, v := range favs {
+		if v.UserId.Equals(fav.UserId) && v.DiaryId.Equals(fav.DiaryId) {
+			favs[i] = favs[len(favs)-1] // Copy last element to index i.
+			favs[len(favs)-1] = nil     // Erase last element (write zero value).
+			favs = favs[:len(favs)-1]   // Truncate slice.
+		}
+	}
+	return nil
+}

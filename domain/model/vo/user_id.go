@@ -18,3 +18,7 @@ func NewUserId(id string) (*UserId, error) {
 	}
 	return &UserId{id}, nil
 }
+
+func (u *UserId) Equals(another *UserId) bool {
+	return u.id == another.id
+}
