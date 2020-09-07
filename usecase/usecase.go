@@ -2,7 +2,7 @@ package usecase
 
 import (
 	"jweb-notifier/domain/model/repository"
-	"jweb-notifier/infrastructure/inmem"
+	"jweb-notifier/infrastructure/persistence/inmem"
 )
 
 var repo repository.User
