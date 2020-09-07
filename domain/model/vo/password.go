@@ -5,15 +5,13 @@ import (
 	"regexp"
 )
 
-type Password struct {
-	password string
-}
+type Password string
 
 var charTypeRe = regexp.MustCompile(`^[a-zA-Z0-9]{8,}$`)
 
-func NewPassword(password string) (*Password, error) {
+func NewPassword(password string) (Password, error) {
 	if !charTypeRe.MatchString(password) {
-		return nil, errors.New("英数字8文字以上ではありません")
+		return "", errors.New("英数字8文字以上ではありません")
 	}
-	return &Password{password}, nil
+	return Password(password), nil
 }
