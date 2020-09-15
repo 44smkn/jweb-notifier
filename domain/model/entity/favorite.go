@@ -5,11 +5,11 @@ import (
 )
 
 type Favorite struct {
-	UserId  *vo.UserId
-	DiaryId *vo.DiaryId
+	UserId  vo.UserId
+	DiaryId vo.DiaryId
 }
 
-func NewFavorite(userId *vo.UserId, diaryId *vo.DiaryId) *Favorite {
+func NewFavorite(userId vo.UserId, diaryId vo.DiaryId) *Favorite {
 	return &Favorite{
 		UserId:  userId,
 		DiaryId: diaryId,
