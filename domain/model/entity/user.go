@@ -5,11 +5,11 @@ import (
 )
 
 type User struct {
-	UserId   *vo.UserId
-	Password *vo.Password
+	UserId   vo.UserId
+	Password vo.Password
 }
 
-func NewUser(id *vo.UserId, password *vo.Password) *User {
+func NewUser(id vo.UserId, password vo.Password) *User {
 	return &User{
 		UserId:   id,
 		Password: password,
