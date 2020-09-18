@@ -1,19 +1,16 @@
 package vo
 
-type TalentName string
-
-const (
-	KaitoTakahashi TalentName = "高橋海人"
-	NoeruKawashima TalentName = "川島如恵留"
+import (
+	"errors"
+	"strings"
 )
 
+type TalentName string
+
 // リフレクションを利用したほうが良いかも
-func TalentNameValueOf(name string) TalentName {
-	switch name {
-	case "高橋海人":
-		return KaitoTakahashi
-	case "川島如恵留":
-		return NoeruKawashima
+func NewTalentName(name string) (TalentName, error) {
+	if strings.TrimSpace(name) == "" {
+		return "", errors.New("name is empty")
 	}
-	return ""
+	return TalentName(name), nil
 }
