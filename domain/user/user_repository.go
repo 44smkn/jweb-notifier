@@ -1,4 +1,4 @@
-package repository
+package user
 
 import (
 	"jweb-notifier/domain/model/entity"
