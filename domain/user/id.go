@@ -1,18 +1,18 @@
-package vo
+package user
 
 import (
 	"errors"
 	"regexp"
 )
 
-type UserId string
+type id string
 
 // mailRe はメールアドレスの正規表現
 var mailRe = regexp.MustCompile(`^[a-zA-Z0-9.!#$%&'*+\/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$`)
 
-func NewUserId(id string) (UserId, error) {
-	if !mailRe.MatchString(id) {
+func NewId(userId string) (id, error) {
+	if !mailRe.MatchString(userId) {
 		return "", errors.New("IDがメールアドレスの形式になっていません")
 	}
-	return UserId(id), nil
+	return id(userId), nil
 }

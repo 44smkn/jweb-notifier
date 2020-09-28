@@ -1,17 +1,13 @@
 package user
 
-import (
-	"jweb-notifier/domain/model/vo"
-)
-
 type User struct {
-	UserId   vo.UserId
-	Password vo.Password
+	Id       id
+	Password password
 }
 
-func NewUser(id vo.UserId, password vo.Password) *User {
+func NewUser(userId id, userPassword password) *User {
 	return &User{
-		UserId:   id,
-		Password: password,
+		Id:       userId,
+		Password: userPassword,
 	}
 }

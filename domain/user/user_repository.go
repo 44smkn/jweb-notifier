@@ -1,11 +1,9 @@
 package user
 
-import (
-	"jweb-notifier/domain/model/entity"
-)
+import . "jweb-notifier/domain/favorite"
 
-type User interface {
-	Register(*entity.User) error
-	AddFavorite(*entity.Favorite) error
-	DeleteFavorite(*entity.Favorite) error
+type UserRepository interface {
+	Register(*User) error
+	AddFavorite(*Favorite) error
+	DeleteFavorite(*Favorite) error
 }
