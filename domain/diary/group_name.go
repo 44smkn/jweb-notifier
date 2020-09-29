@@ -1,8 +1,7 @@
-package vo
+package diary
 
-type GroupName string
+type groupName string
 
-const (
-	KingAndPrince GroupName = "King & Prince"
-	TravisJapan   GroupName = "Travis Japan"
-)
+func NewGroupName(name string) groupName {
+	return groupName(name)
+}

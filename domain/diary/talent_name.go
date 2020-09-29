@@ -1,16 +1,16 @@
-package vo
+package diary
 
 import (
 	"errors"
 	"strings"
 )
 
-type TalentName string
+type talentName string
 
 // リフレクションを利用したほうが良いかも
-func NewTalentName(name string) (TalentName, error) {
+func NewTalentName(name string) (talentName, error) {
 	if strings.TrimSpace(name) == "" {
 		return "", errors.New("name is empty")
 	}
-	return TalentName(name), nil
+	return talentName(name), nil
 }

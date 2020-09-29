@@ -1,9 +1,15 @@
-package entity
-
-import "jweb-notifier/domain/model/vo"
+package diary
 
 type Diary struct {
-	Id         vo.DiaryId
-	TalentName vo.TalentName
-	GroupName  vo.GroupName
+	Id         id
+	TalentName talentName
+	GroupName  groupName
+}
+
+func NewDiary(id id, talentName talentName, groupName groupName) *Diary {
+	return &Diary{
+		Id:         id,
+		TalentName: talentName,
+		GroupName:  groupName,
+	}
 }
