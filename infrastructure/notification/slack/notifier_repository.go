@@ -6,6 +6,17 @@ import (
 	"github.com/slack-go/slack"
 )
 
+type Slack struct {
+	UserId     string
+	WebhookUrl string
+	Recipient  string
+	Token      string
+}
+
+func (s *Slack) Notify(msg string) error {
+	return nil
+}
+
 type NotifierRepository struct {
 	webhookUrl string
 	recipient  string
