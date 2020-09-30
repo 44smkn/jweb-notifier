@@ -1,28 +1,22 @@
 package inmem
 
-import "jweb-notifier/domain/model/entity"
+import (
+	. "jweb-notifier/domain/user"
+)
 
 type UserRepository struct{}
 
-var users = make([]*entity.User, 5)
-var favs = make([]*entity.Favorite, 5)
+var users = make([]*User, 5)
 
-func (u *UserRepository) Register(user *entity.User) error {
+func (u *UserRepository) Register(user *User) error {
 	users = append(users, user)
 	return nil
 }
 
-func (u *UserRepository) AddFavorite(fav *entity.Favorite) error {
-	favs = append(favs, fav)
-	return nil
-}
-
-func (u *UserRepository) DeleteFavorite(fav *entity.Favorite) error {
-	for i, v := range favs {
-		if v.UserId == fav.UserId && v.DiaryId == fav.DiaryId {
-			favs[i] = favs[len(favs)-1] // Copy last element to index i.
-			favs[len(favs)-1] = nil     // Erase last element (write zero value).
-			favs = favs[:len(favs)-1]   // Truncate slice.
+func (u *UserRepository) ChangeFavorite(user *User) error {
+	for i, u := range users {
+		if user.Id == u.Id {
+			users[i] = user
 		}
 	}
 	return nil
