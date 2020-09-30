@@ -2,7 +2,7 @@ package user
 
 type diaryId string
 
-func newDiaryId(id string) (diaryId, error) {
+func NewDiaryId(id string) (diaryId, error) {
 	// 桁数などでvalidataionをかける
 	return diaryId(id), nil
 }
