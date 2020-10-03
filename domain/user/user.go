@@ -13,3 +13,7 @@ func NewUser(userId id, userPassword password, favorites []diaryId) *User {
 		Favorite: favorites,
 	}
 }
+
+func (u *User) AddFavorite(id diaryId) {
+	u.Favorite = append(u.Favorite, id)
+}

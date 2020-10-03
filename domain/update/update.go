@@ -1,7 +1,11 @@
-package entity
+package update
+
+import (
+	d "jweb-notifier/domain/diary"
+)
 
 type Updates struct {
 	Date    string
 	Time    string
-	Diaries []Diary
+	Diaries []d.Diary
 }

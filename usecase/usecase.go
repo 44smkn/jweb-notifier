@@ -1,12 +1,12 @@
 package usecase
 
 import (
-	"jweb-notifier/domain/model/repository"
 	"jweb-notifier/infrastructure/persistence/inmem"
+	d "jweb-notifier/infrastructure/persistence/inmem"
 )
 
-var repo repository.User
+var userRepo *d.UserRepository
 
 func init() {
-	repo = &inmem.UserRepository{}
+	userRepo = &inmem.UserRepository{}
 }
