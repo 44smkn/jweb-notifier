@@ -14,7 +14,7 @@ func (u *UserRepository) Register(user *du.User) error {
 }
 
 // 後で引数を直す
-func (u *UserRepository) Get(userId interface{}) *du.User {
+func (u *UserRepository) Get(userId du.Id) *du.User {
 	return nil
 }
 

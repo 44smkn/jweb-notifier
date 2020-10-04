@@ -1,12 +1,12 @@
 package user
 
 type User struct {
-	Id       id
+	Id       Id
 	Password password
 	Favorite []diaryId
 }
 
-func NewUser(userId id, userPassword password, favorites []diaryId) *User {
+func NewUser(userId Id, userPassword password, favorites []diaryId) *User {
 	return &User{
 		Id:       userId,
 		Password: userPassword,
