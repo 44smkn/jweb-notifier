@@ -20,7 +20,7 @@ func (u *UserRepository) Get(userId du.Id) *du.User {
 
 func (u *UserRepository) ChangeFavorite(user *du.User) error {
 	for i, u := range users {
-		if user.Id == u.Id {
+		if user.Equals(u) {
 			users[i] = user
 		}
 	}
