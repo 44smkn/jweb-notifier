@@ -1,6 +1,7 @@
 package usecase
 
 import (
+	dd "jweb-notifier/domain/diary"
 	du "jweb-notifier/domain/user"
 	"jweb-notifier/presentation/param"
 
@@ -16,6 +17,6 @@ func RegisterUser(u *param.User) error {
 	if err != nil {
 		return errors.Wrapf(err, "creating vo of userid is fail. password: %s", u.Password)
 	}
-	user := du.NewUser(id, password, du.EmptyIds())
+	user := du.NewUser(id, password, []dd.Id{})
 	return userRepo.Register(user)
 }
