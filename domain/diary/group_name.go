@@ -1,7 +1,9 @@
 package diary
 
-type groupName string
+type GroupName struct {
+	val string
+}
 
-func NewGroupName(name string) groupName {
-	return groupName(name)
+func NewGroupName(name string) GroupName {
+	return GroupName{val: name}
 }

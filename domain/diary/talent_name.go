@@ -5,12 +5,14 @@ import (
 	"strings"
 )
 
-type talentName string
+type TalentName struct {
+	val string
+}
 
 // リフレクションを利用したほうが良いかも
-func NewTalentName(name string) (talentName, error) {
+func NewTalentName(name string) (TalentName, error) {
 	if strings.TrimSpace(name) == "" {
-		return "", errors.New("name is empty")
+		return TalentName{}, errors.New("name is empty")
 	}
-	return talentName(name), nil
+	return TalentName{val: name}, nil
 }

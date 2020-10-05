@@ -1,15 +1,15 @@
 package diary
 
 type Diary struct {
-	Id         id
-	TalentName talentName
-	GroupName  groupName
+	id         Id
+	talentName TalentName
+	groupName  GroupName
 }
 
-func NewDiary(id id, talentName talentName, groupName groupName) *Diary {
+func NewDiary(id Id, talentName TalentName, groupName GroupName) *Diary {
 	return &Diary{
-		Id:         id,
-		TalentName: talentName,
-		GroupName:  groupName,
+		id:         id,
+		talentName: talentName,
+		groupName:  groupName,
 	}
 }

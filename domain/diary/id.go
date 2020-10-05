@@ -1,8 +1,10 @@
 package diary
 
-type id string
+type Id struct {
+	val string
+}
 
-func NewId(diaryId string) (id, error) {
+func NewId(diaryId string) (Id, error) {
 	// 桁数などでvalidataionをかける
-	return id(diaryId), nil
+	return Id{val: diaryId}, nil
 }
