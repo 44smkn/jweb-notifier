@@ -1,12 +1,14 @@
 package user
 
+import "jweb-notifier/domain/diary"
+
 type User struct {
 	id       Id
 	password password
-	favorite []diaryId
+	favorite []diary.Id
 }
 
-func NewUser(userId Id, userPassword password, favorites []diaryId) *User {
+func NewUser(userId Id, userPassword password, favorites []diary.Id) *User {
 	return &User{
 		id:       userId,
 		password: userPassword,
@@ -14,7 +16,7 @@ func NewUser(userId Id, userPassword password, favorites []diaryId) *User {
 	}
 }
 
-func (u *User) AddFavorite(id diaryId) {
+func (u *User) AddFavorite(id diary.Id) {
 	u.favorite = append(u.favorite, id)
 }
 
