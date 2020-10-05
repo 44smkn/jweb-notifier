@@ -1,6 +1,7 @@
 package usecase
 
 import (
+	dd "jweb-notifier/domain/diary"
 	du "jweb-notifier/domain/user"
 	"jweb-notifier/presentation/param"
 
@@ -14,7 +15,7 @@ func AddFavorite(f *param.Favorite) error {
 	}
 	user := userRepo.Get(userId)
 
-	diaryId, err := du.NewDiaryId(f.DiaryId)
+	diaryId, err := dd.NewId(f.DiaryId)
 	if err != nil {
 		return errors.Wrapf(err, "creating vo of diaryId is fail. id: %s", f.DiaryId)
 	}
