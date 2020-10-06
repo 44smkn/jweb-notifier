@@ -1,23 +1,28 @@
 package inmem
 
+import (
+	dd "jweb-notifier/domain/diary"
+	du "jweb-notifier/domain/update"
+	"log"
+	"time"
+)
+
 type UpdatesRepository struct{}
 
-/*
-func (u *UpdatesRepository) Fetch() *Updates {
-	diaryId, err := vo.NewDiaryId("1")
+func (u *UpdatesRepository) Fetch() *du.Updates {
+	dt := du.NewDateTime(time.Date(2020, time.October, 10, 18, 0, 0, 0, time.Local))
+	id, err := dd.NewId("59")
 	if err != nil {
-		log.Fatalln("failed to create diary id.")
+		log.Fatalln("diary idの生成に失敗しました")
 	}
-	return &entity.Updates{
-		Date: "2020/09/16",
-		Time: "15:00",
-		Diaries: []d.Diary{
-			{
-				Id:         diaryId,
-				TalentName: vo.NoeruKawashima,
-				GroupName:  vo.TravisJapan,
-			},
-		},
+	tn, err := dd.NewTalentName("川島如恵留")
+	if err != nil {
+		log.Fatalln("talent nameの生成に失敗しました")
 	}
+	gn := dd.NewGroupName("TravisJapan")
+	diaries := []dd.Diary{
+		*dd.NewDiary(id, tn, gn),
+	}
+	updates := du.NewUpdates(dt, diaries)
+	return updates
 }
-*/
