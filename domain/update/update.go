@@ -5,7 +5,13 @@ import (
 )
 
 type Updates struct {
-	Date    string
-	Time    string
-	Diaries []d.Diary
+	dateTime DateTime
+	diaries  []d.Diary
+}
+
+func NewUpdates(dateTime DateTime, diaries []d.Diary) *Updates {
+	return &Updates{
+		dateTime: dateTime,
+		diaries:  diaries,
+	}
 }
