@@ -4,11 +4,11 @@ import "jweb-notifier/domain/diary"
 
 type User struct {
 	id       Id
-	password password
+	password Password
 	favorite []diary.Id
 }
 
-func NewUser(userId Id, userPassword password, favorites []diary.Id) *User {
+func NewUser(userId Id, userPassword Password, favorites []diary.Id) *User {
 	return &User{
 		id:       userId,
 		password: userPassword,
