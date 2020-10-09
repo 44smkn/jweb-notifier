@@ -1,7 +1,13 @@
 package param
 
 type Favorite struct {
-	UserId       string
-	UserPassword string
-	DiaryId      string
+	UserId  string
+	DiaryId string
+}
+
+func NewFavorite(userId, diaryId string) Favorite {
+	return Favorite{
+		UserId:  userId,
+		DiaryId: diaryId,
+	}
 }
