@@ -3,23 +3,22 @@ package usecase
 import (
 	dd "jweb-notifier/domain/diary"
 	du "jweb-notifier/domain/user"
-	"jweb-notifier/presentation/param"
 
 	"github.com/pkg/errors"
 )
 
-func AddFavorite(f *param.Favorite) error {
-	userId, err := du.NewId(f.UserId)
+func AddFavorite(userId, diaryId string) error {
+	uid, err := du.NewId(userId)
 	if err != nil {
-		return errors.Wrapf(err, "creating vo of userId is fail. id: %s", f.UserId)
+		return errors.Wrapf(err, "creating vo of userId is fail. id: %s", userId)
 	}
-	user := userRepo.Get(userId)
+	user := userRepo.Get(uid)
 
-	diaryId, err := dd.NewId(f.DiaryId)
+	did, err := dd.NewId(diaryId)
 	if err != nil {
-		return errors.Wrapf(err, "creating vo of diaryId is fail. id: %s", f.DiaryId)
+		return errors.Wrapf(err, "creating vo of diaryId is fail. id: %s", diaryId)
 	}
 
-	user.AddFavorite(diaryId)
+	user.AddFavorite(did)
 	return userRepo.ChangeFavorite(user)
 }
