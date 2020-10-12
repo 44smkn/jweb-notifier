@@ -23,3 +23,7 @@ func (u *User) AddFavorite(id diary.Id) {
 func (u *User) Equals(another *User) bool {
 	return u.id.val == another.id.val
 }
+
+func (u *User) GetId() Id {
+	return u.id
+}

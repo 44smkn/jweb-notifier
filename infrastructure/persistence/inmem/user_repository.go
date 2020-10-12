@@ -13,8 +13,12 @@ func (u *UserRepository) Register(user *du.User) error {
 	return nil
 }
 
-// 後で引数を直す
 func (u *UserRepository) Get(userId du.Id) *du.User {
+	for i, u := range users {
+		if u.GetId() == userId {
+			return u
+		}
+	}
 	return nil
 }
 
