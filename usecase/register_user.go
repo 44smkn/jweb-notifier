@@ -11,11 +11,11 @@ import (
 func RegisterUser(u *param.RegisterUserInput) error {
 	id, err := du.NewId(u.Id)
 	if err != nil {
-		return errors.Wrapf(err, "creating vo of userid is fail. id: %s", u.Id)
+		return errors.Wrapf(err, "ユーザIDは要件に満たしませんでした. id: %s", u.Id)
 	}
 	password, err := du.NewPassword(u.Password)
 	if err != nil {
-		return errors.Wrapf(err, "creating vo of userid is fail. password: %s", u.Password)
+		return errors.Wrapf(err, "パスワードは要件に満たしませんでした. password: %s", u.Password)
 	}
 	user := du.NewUser(id, password, []dd.Id{})
 	return userRepo.Register(user)
