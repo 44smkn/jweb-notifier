@@ -14,7 +14,7 @@ func (u *UserRepository) Register(user *du.User) error {
 }
 
 func (u *UserRepository) Get(userId du.Id) *du.User {
-	for i, u := range users {
+	for _, u := range users {
 		if u.GetId() == userId {
 			return u
 		}
