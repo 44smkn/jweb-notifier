@@ -18,17 +18,20 @@ func NewSlackNotifier(webhookurl string) *SlackNotifier {
 	return &SlackNotifier{webhookUrl: webhookurl}
 }
 
-func newSlackMessageBody(string text) *SlackMessageBody {
+func newSlackMessageBody(text string) *SlackMessageBody {
 	return &SlackMessageBody{Text: text}
 }
 
 func (s *SlackNotifier) Notify(msg string) error {
-	body := json.Marshal(newSlackMessageBody(msg))
+	body, err := json.Marshal(newSlackMessageBody(msg))
+	if err != nil {
+		return err
+	}
 	req, err := http.NewRequest(http.MethodPost, s.webhookUrl, bytes.NewBuffer(body))
 	if err != nil {
 		return err
 	}
-	_, err := http.DefaultClient.Do(req)
+	_, err = http.DefaultClient.Do(req)
 	if err != nil {
 		return err
 	}
