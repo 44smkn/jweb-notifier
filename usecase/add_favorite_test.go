@@ -1,6 +1,8 @@
 package usecase_test
 
 import (
+	"jweb-notifier/domain/diary"
+	"jweb-notifier/domain/user"
 	"jweb-notifier/presentation/param"
 	"jweb-notifier/usecase"
 	"strings"
@@ -9,6 +11,9 @@ import (
 
 func TestAddFavorite(t *testing.T) {
 	t.Parallel()
+
+	inmem.Users = append(inmem.Users, createUser("44smkn@gmail.com", "password"))
+
 	tests := []struct {
 		name    string
 		userId  string
@@ -32,9 +37,19 @@ func TestAddFavorite(t *testing.T) {
 				DiaryId: tt.diaryId,
 			}
 			err := usecase.AddFavorite(f)
-			if err != nil && !strings.Contains(err.Error(), tt.want.Error()) {
+			if err != tt.want && !strings.Contains(err.Error(), tt.want.Error()) {
 				t.Errorf("want: %v  got: %v", tt.want.Error(), err.Error())
 			}
 		})
+	}
+}
+
+func createUser(id, password string) user.User {
+	userId, _ := user.NewId(id)
+	userPassword, _ := user.NewPassword(password)
+	return user.User{
+		id: userId,
+		password: userPassword,
+		favorite: []diary.Id{}
 	}
 }
