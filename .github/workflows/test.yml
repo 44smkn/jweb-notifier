@@ -18,3 +18,5 @@ jobs:
               uses: actions/checkout@master
             - name: Running go tests
               run: go test ./...
+              env:
+                  SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
