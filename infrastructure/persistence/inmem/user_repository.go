@@ -6,7 +6,7 @@ import (
 
 type UserRepository struct{}
 
-var users = make([]*du.User, 5)
+var users = make([]*du.User, 0, 5)
 
 func (u *UserRepository) Register(user *du.User) error {
 	users = append(users, user)
@@ -14,9 +14,9 @@ func (u *UserRepository) Register(user *du.User) error {
 }
 
 func (u *UserRepository) Get(userId du.Id) *du.User {
-	for _, u := range users {
-		if u.GetId() == userId {
-			return u
+	for _, user := range users {
+		if user.GetId() == userId {
+			return user
 		}
 	}
 	return nil

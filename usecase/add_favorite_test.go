@@ -1,8 +1,9 @@
 package usecase_test
 
 import (
-	"jweb-notifier/domain/diary"
-	"jweb-notifier/domain/user"
+	dd "jweb-notifier/domain/diary"
+	du "jweb-notifier/domain/user"
+	"jweb-notifier/infrastructure/persistence/inmem"
 	"jweb-notifier/presentation/param"
 	"jweb-notifier/usecase"
 	"strings"
@@ -12,7 +13,11 @@ import (
 func TestAddFavorite(t *testing.T) {
 	t.Parallel()
 
-	inmem.Users = append(inmem.Users, createUser("44smkn@gmail.com", "password"))
+	repo := &inmem.UserRepository{}
+	err := repo.Register(createUser("44smkn@gmail.com", "password"))
+	if err != nil {
+		t.Errorf("failed to register user")
+	}
 
 	tests := []struct {
 		name    string
@@ -44,12 +49,8 @@ func TestAddFavorite(t *testing.T) {
 	}
 }
 
-func createUser(id, password string) user.User {
-	userId, _ := user.NewId(id)
-	userPassword, _ := user.NewPassword(password)
-	return user.User{
-		id: userId,
-		password: userPassword,
-		favorite: []diary.Id{}
-	}
+func createUser(id, password string) *du.User {
+	userId, _ := du.NewId(id)
+	userPassword, _ := du.NewPassword(password)
+	return du.NewUser(userId, userPassword, []dd.Id{})
 }
