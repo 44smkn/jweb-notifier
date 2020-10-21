@@ -1,6 +1,6 @@
 package presentation
 
-type RegisterUserInput struct {
+type RegisterUserParam struct {
 	Id       string
 	Password string
 }

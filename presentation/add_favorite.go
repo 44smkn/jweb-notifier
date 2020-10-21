@@ -1,6 +1,6 @@
 package presentation
 
-type AddFavoriteInput struct {
+type AddFavoriteParam struct {
 	UserId  string
 	DiaryId string
 }
