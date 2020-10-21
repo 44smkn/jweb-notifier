@@ -3,12 +3,12 @@ package usecase
 import (
 	dd "jweb-notifier/domain/diary"
 	du "jweb-notifier/domain/user"
-	"jweb-notifier/presentation/param"
+	"jweb-notifier/presentation"
 
 	"github.com/pkg/errors"
 )
 
-func RegisterUser(u *param.RegisterUserInput) error {
+func RegisterUser(u *presentation.RegisterUserParam) error {
 	id, err := du.NewId(u.Id)
 	if err != nil {
 		return errors.Wrapf(err, "ユーザIDは要件に満たしませんでした. id: %s", u.Id)

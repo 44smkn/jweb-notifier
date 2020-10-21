@@ -5,7 +5,7 @@ import (
 	dd "jweb-notifier/domain/diary"
 	"jweb-notifier/domain/user"
 	du "jweb-notifier/domain/user"
-	"jweb-notifier/presentation/param"
+	"jweb-notifier/presentation"
 	"log"
 
 	"github.com/pkg/errors"
@@ -21,7 +21,7 @@ func init() {
 	}
 }
 
-func AddFavorite(f *param.AddFavoriteInput) error {
+func AddFavorite(f *presentation.AddFavoriteParam) error {
 	userId, err := du.NewId(f.UserId)
 	if err != nil {
 		return errors.Wrapf(err, "ユーザIDの要件に満たしませんでした. id: %s", userId)

@@ -4,7 +4,7 @@ import (
 	dd "jweb-notifier/domain/diary"
 	du "jweb-notifier/domain/user"
 	"jweb-notifier/infrastructure/persistence/inmem"
-	"jweb-notifier/presentation/param"
+	"jweb-notifier/presentation"
 	"jweb-notifier/usecase"
 	"strings"
 	"testing"
@@ -37,7 +37,7 @@ func TestAddFavorite(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			f := &param.AddFavoriteInput{
+			f := &presentation.AddFavoriteParam{
 				UserId:  tt.userId,
 				DiaryId: tt.diaryId,
 			}
