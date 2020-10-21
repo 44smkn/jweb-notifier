@@ -1,4 +1,4 @@
-package param
+package presentation
 
 type RegisterUserInput struct {
 	Id       string
