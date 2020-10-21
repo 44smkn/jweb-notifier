@@ -11,3 +11,7 @@ type DateTime struct {
 func NewDateTime(dateTime time.Time) DateTime {
 	return DateTime{val: dateTime}
 }
+
+func (d DateTime) Format(layout string) string {
+	return d.val.Format(layout)
+}

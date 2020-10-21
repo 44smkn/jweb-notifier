@@ -15,3 +15,7 @@ func NewUpdates(dateTime DateTime, diaries []d.Diary) *Updates {
 		diaries:  diaries,
 	}
 }
+
+func (u *Updates) GetDateTime(layout string) string {
+	return u.dateTime.Format(layout)
+}
