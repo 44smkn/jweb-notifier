@@ -2,7 +2,6 @@ package usecase_test
 
 import (
 	"errors"
-	"jweb-notifier/presentation"
 	"jweb-notifier/usecase"
 	"strings"
 	"testing"
@@ -40,7 +39,7 @@ func TestRegisterUser(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			input := &presentation.RegisterUserParam{
+			input := &usecase.RegisterUserParam{
 				Id:       tt.id,
 				Password: tt.password,
 			}
