@@ -17,8 +17,8 @@ func registerUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	param := &usecase.RegisterUserParam{
-		Id:       data.id,
-		Password: data.password,
+		Id:       data.Id,
+		Password: data.Password,
 	}
 
 	if err := usecase.RegisterUser(param); err != nil {
@@ -37,10 +37,10 @@ type registerUserRequest struct {
 }
 
 func (u *registerUserRequest) Bind(r *http.Request) error {
-	if u.id == "" {
+	if u.Id == "" {
 		return errors.New("missing required id fields.")
 	}
-	if u.password == "" {
+	if u.Password == "" {
 		return errors.New("missing required password fields.")
 	}
 
