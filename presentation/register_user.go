@@ -32,8 +32,8 @@ func registerUser(w http.ResponseWriter, r *http.Request) {
 }
 
 type registerUserRequest struct {
-	id       string `json:"id"`
-	password string `json:"password"`
+	Id       string `json:"id"`
+	Password string `json:"password"`
 }
 
 func (u *registerUserRequest) Bind(r *http.Request) error {
