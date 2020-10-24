@@ -24,7 +24,7 @@ func ServerRun(port uint16) {
 		r.Post("/", registerUser)
 	})
 
-	http.ListenAndServe(fmt.Sprintf(":%s", port), r)
+	http.ListenAndServe(fmt.Sprintf(":%v", port), r)
 }
 
 type errResponse struct {
