@@ -1,6 +1,7 @@
 package presentation
 
 import (
+	"fmt"
 	"net/http"
 	"time"
 
@@ -9,7 +10,7 @@ import (
 	"github.com/go-chi/render"
 )
 
-func ServerRun() {
+func ServerRun(port uint16) {
 	r := chi.NewRouter()
 
 	r.Use(middleware.RequestID)
@@ -22,6 +23,8 @@ func ServerRun() {
 	r.Route("/user", func(r chi.Router) {
 		r.Post("/", registerUser)
 	})
+
+	http.ListenAndServe(fmt.Sprintf(":%s", port), r)
 }
 
 type errResponse struct {
