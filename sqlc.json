@@ -1,0 +1,9 @@
+{
+    "version": "1",
+    "packages": [{
+        "schema": "infrastructure/persistence/db/schema.sql",
+        "queries": "infrastructure/persistence/db/query.sql",
+        "name": "db",
+        "path": "infrastructure/persistence/db"
+    }]
+}
